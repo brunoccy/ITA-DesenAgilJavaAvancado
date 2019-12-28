@@ -65,8 +65,8 @@ public class DAO implements UsuarioDAO{
 		try (Connection c = DriverManager.getConnection("jdbc:postgresql://localhost/coursera", "postgres", "284693")){
 			String sql = "UPDATE usuario SET pontos = pontos + ? WHERE login = ?;";
 			PreparedStatement stm = c.prepareStatement(sql);
-			stm.setString(1, login);
-			stm.setInt(2, pontos);
+			stm.setInt(1, pontos);
+			stm.setString(2, login);
 			stm.executeUpdate();
 			}
 		catch (SQLException e) {

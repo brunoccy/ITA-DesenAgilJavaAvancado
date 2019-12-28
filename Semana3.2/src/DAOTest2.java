@@ -28,12 +28,6 @@ public class DAOTest2 {
 	}
 	
 	@Test
-	public void ranking() {
-		List<Usuario> lista = d.ranking();
-		System.out.println(lista);
-	}
-	
-	@Test
 	public void inserirUsuario() throws SQLException, Exception {
 		Usuario u = new Usuario();
 		u.setLogin("CLOGIN");
@@ -41,9 +35,7 @@ public class DAOTest2 {
 		u.setNome("CNOME");
 		u.setSenha("CSENHA");
 		u.setPontos(12);
-		
 		d.inserir(u);
-		
 		IDataSet currentDataset = jdt.getConnection().createDataSet();
 		ITable currentTable = currentDataset.getTable("USUARIO");
 		FlatXmlDataFileLoader loader = new FlatXmlDataFileLoader();
@@ -52,4 +44,22 @@ public class DAOTest2 {
 		Assertion.assertEquals(expectedTable, currentTable);
 	}
 
+	@Test
+	public void recuperarUsuario() {
+		Usuario recuperado = d.recuperar("ALOGIN");
+		assertEquals("ANOME", recuperado.getNome());
+	}
+	
+	@Test
+	public void atualizarUsuario() {
+		d.adicionarPontos("ALOGIN", 7);
+		assertEquals(12, d.recuperar("ALOGIN").getPontos());
+		
+	}
+	@Test
+	public void recuperarRanking() {
+		List<Usuario> listaRankiado = d.ranking();
+		assertEquals("BLOGIN", listaRankiado.get(0).getLogin());
+		assertEquals("ALOGIN", listaRankiado.get(1).getLogin());
+	}
 }
