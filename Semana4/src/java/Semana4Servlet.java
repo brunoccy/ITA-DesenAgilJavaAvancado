@@ -20,20 +20,17 @@ public class Semana4Servlet extends HttpServlet {
     protected void doGet(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
        String senhaDigitada = request.getParameter("senhaDigitado");
-       String liginDigitado = request.getParameter("liginDigitado");
-       if (AutenticarDAO.verficarUsuario(liginDigitado,senhaDigitada)){
+       String loginDigitado = request.getParameter("loginDigitado");
+       if (AutenticarDAO.verficarUsuario(loginDigitado,senhaDigitada)){
             RequestDispatcher rd=request.getRequestDispatcher("topicos.html");  
             rd.forward(request,response);    
        }else{
+           try (PrintWriter out = response.getWriter()) {
             out.print("Sorry username or password error");  
             RequestDispatcher rd=request.getRequestDispatcher("index.html");  
             rd.include(request,response);  
-       }
-       out.close(); 
-       
+       }}       
     }
-
-  
     @Override
     protected void doPost(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
