@@ -27,7 +27,8 @@ public class Semana4Servlet extends HttpServlet {
        }else{
            try (PrintWriter out = response.getWriter()) {
             out.print("Sorry username or password error");  
-            RequestDispatcher rd=request.getRequestDispatcher("index.html");  
+            RequestDispatcher rd=request.getRequestDispatcher("index.html");
+           
             rd.include(request,response);  
        }}       
     }
