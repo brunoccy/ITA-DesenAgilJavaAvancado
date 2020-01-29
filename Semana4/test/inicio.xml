@@ -1,0 +1,7 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+
+<dataset>
+    <USUARIO NOME="ANOME" LOGIN="ALOGIN" EMAIL="AEMAIL" SENHA="ASENHA" PONTOS="7" />
+    <USUARIO NOME="BNOME" LOGIN="BLOGIN" EMAIL="BEMAIL" SENHA="BSENHA" PONTOS="10"/>
+</dataset>

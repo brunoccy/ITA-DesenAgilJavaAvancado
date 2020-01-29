@@ -29,7 +29,7 @@ public class semana1 {
   JavascriptExecutor js;
   @Before
   public void setUp() {
-    System.setProperty("webdriver.chrome.driver", "C:\\Users\\Mariana\\Desktop\\git\\ITA-DesenAgilJavaAvancado\\biblioteca para teste\\selenium lib\\chromedriver.exe");
+    System.setProperty("webdriver.chrome.driver", "chromedriver.exe");
     driver = new ChromeDriver();
     js = (JavascriptExecutor) driver;
     vars = new HashMap<String, Object>();
